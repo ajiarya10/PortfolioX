@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio Modern dengan Parallax & Dark Mode</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366F1', // Indigo 500
+            secondary: '#A78BFA', // Violet 400
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Parallax effect for hero background */
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    /* Smooth fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-500">
+
+  <!-- Header / Navigasi -->
+  <header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-colors duration-500">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="#" class="text-2xl font-bold text-primary dark:text-secondary">Portofolio</a>
+      <ul class="hidden md:flex space-x-8">
+        <li><a href="#hero" class="hover:text-primary dark:hover:text-secondary transition">Beranda</a></li>
+        <li><a href="#projects" class="hover:text-primary dark:hover:text-secondary transition">Proyek</a></li>
+        <li><a href="#about" class="hover:text-primary dark:hover:text-secondary transition">Tentang</a></li>
+        <li><a href="#contact" class="hover:text-primary dark:hover:text-secondary transition">Kontak</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="text-2xl focus:outline-none">
+        🌙
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section dengan Parallax -->
+  <section id="hero" class="parallax bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80')] h-screen flex flex-col justify-center items-center text-center px-4">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg fade-in" style="animation-delay: 0.3s;">
+      Halo, Saya <span class="text-secondary">[Nama Anda]</span>
+    </h1>
+    <p class="mt-4 text-xl md:text-2xl text-white drop-shadow-md fade-in" style="animation-delay: 0.6s;">
+      Developer Web & Desainer UI/UX Modern
+    </p>
+    <a href="#projects" class="mt-8 inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-primary transition-colors fade-in" style="animation-delay: 0.9s;">
+      Lihat Proyek Saya
+    </a>
+  </section>
+
+  <!-- Proyek dengan Layout Asimetris -->
+  <section id="projects" class="container mx-auto px-4 py-20">
+    <h2 class="text-4xl font-bold text-center mb-12 text-primary dark:text-secondary">Proyek Saya</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+        <img src="https://source.unsplash.com/600x400/?website" alt="Proyek 1" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2 text-primary dark:text-secondary">Website Company Profile</h3>
+          <p class="text-gray-700 dark:text-gray-300">Website modern dengan fitur interaktif dan desain responsif.</p>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mt-12 md:mt-0">
+        <img src="https://source.unsplash.com/600x400/?app" alt="Proyek 2" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2 text-primary dark:text-secondary">Aplikasi Mobile E-Commerce</h3>
+          <p class="text-gray-700 dark:text-gray-300">Aplikasi mobile dengan UI yang mudah digunakan dan cepat.</p>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+        <img src="https://source.unsplash.com/600x400/?dashboard" alt="Proyek 3" class="w-full h-48 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2 text-primary dark:text-secondary">Dashboard Admin</h3>
+          <p class="text-gray-700 dark:text-gray-300">Dashboard admin dengan fitur lengkap dan desain intuitif.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tentang Saya -->
+  <section id="about" class="bg-gray-100 dark:bg-gray-900 py-20 px-4">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-4xl font-bold mb-8 text-primary dark:text-secondary">Tentang Saya</h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        Saya adalah developer web dan desainer UI/UX yang berfokus pada pembuatan pengalaman digital yang modern, responsif, dan mudah digunakan. Dengan pengalaman bertahun-tahun, saya siap membantu mewujudkan ide Anda menjadi kenyataan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="contact" class="container mx-auto px-4 py-20">
+    <h2 class="text-4xl font-bold text-center mb-12 text-primary dark:text-secondary">Hubungi Saya</h2>
+    <form id="contactForm" class="max-w-xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg space-y-6" novalidate>
+      <div>
+        <label for="name" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Nama</label>
+        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary" />
+        <p class="text-red-500 text-sm mt-1 hidden" id="nameError">Nama wajib diisi.</p>
+      </div>
+      <div>
+        <label for="email" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Email</label>
+        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary" />
+        <p class="text-red-500 text-sm mt-1 hidden" id="emailError">Email tidak valid.</p>
+      </div>
+      <div>
+        <label for="message" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Pesan</label>
+        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+        <p class="text-red-500 text-sm mt-1 hidden" id="messageError">Pesan wajib diisi.</p>
+      </div>
+      <button type="submit" class="w-full bg-primary text-white py-3 rounded-full font-semibold hover:bg-secondary transition-colors">Kirim Pesan</button>
+      <p class="text-green-500 text-center font-semibold mt-4 hidden" id="formSuccess">Pesan berhasil dikirim! Terima kasih.</p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-6">
+    &copy; 2025 [Nama Anda]. Semua hak cipta dilindungi.
+  </footer>
+
+  <script>
+    // Toggle dark mode
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    // Set initial theme
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      htmlElement.classList.add('dark');
+      themeToggleBtn.textContent = '☀️';
+    } else {
+      themeToggleBtn.textContent = '🌙';
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggleBtn.textContent = '🌙';
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggleBtn.textContent = '☀️';
+      }
+    });
+
+    // Form validation
+    const form = document.getElementById('contactForm');
+    const nameInput = form.name;
+    const emailInput = form.email;
+    const messageInput = form.message;
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let valid = true;
+
+      // Reset error messages
+      nameError.style.display = 'none';
+      emailError.style.display = 'none';
+      messageError.style.display = 'none';
+      formSuccess.style.display = 'none';
+
+      if (!nameInput.value.trim()) {
+        nameError.style.display = 'block';
+        valid = false;
+      }
+
+      const emailPattern = /^\S+@\S+\.\S+$/;
+      if (!emailInput.value.trim() || !emailPattern.test(emailInput.value)) {
+        emailError.style.display = 'block';
+        valid = false;
+      }
+
+      if (!messageInput.value.trim()) {
+        messageError.style.display = 'block';
+        valid = false;
+      }
+
+      if (valid) {
+        formSuccess.style.display = 'block';
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
