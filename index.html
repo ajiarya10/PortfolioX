@@ -1,218 +1,906 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth" >
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portofolio Modern dengan Parallax & Dark Mode</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#6366F1', // Indigo 500
-            secondary: '#A78BFA', // Violet 400
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ultra Modern Portfolio 2024</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#eef2ff",
+                100: "#e0e7ff",
+                200: "#c7d2fe",
+                300: "#a5b4fc",
+                400: "#818cf8",
+                500: "#6366f1",
+                600: "#4f46e5",
+                700: "#4338ca",
+                800: "#3730a3",
+                900: "#312e81",
+                950: "#1e1b4b",
+              },
+              secondary: {
+                50: "#faf5ff",
+                100: "#f3e8ff",
+                200: "#e9d5ff",
+                300: "#d8b4fe",
+                400: "#c084fc",
+                500: "#a855f7",
+                600: "#9333ea",
+                700: "#7e22ce",
+                800: "#6b21a8",
+                900: "#581c87",
+                950: "#3b0764",
+              },
+              accent: {
+                50: "#fff7ed",
+                100: "#ffedd5",
+                200: "#fed7aa",
+                300: "#fdba74",
+                400: "#fb923c",
+                500: "#f97316",
+                600: "#ea580c",
+                700: "#c2410c",
+                800: "#9a3412",
+                900: "#7c2d12",
+                950: "#431407",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter var", "sans-serif"],
+              display: ["CalSans-SemiBold", "sans-serif"],
+            },
           },
         },
-      },
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    /* Parallax effect for hero background */
-    .parallax {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    /* Smooth fade-in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-500">
+      };
+    </script>
 
-  <!-- Header / Navigasi -->
-  <header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-colors duration-500">
-    <nav class="container mx-auto flex justify-between items-center p-4">
-      <a href="#" class="text-2xl font-bold text-primary dark:text-secondary">Portofolio</a>
-      <ul class="hidden md:flex space-x-8">
-        <li><a href="#hero" class="hover:text-primary dark:hover:text-secondary transition">Beranda</a></li>
-        <li><a href="#projects" class="hover:text-primary dark:hover:text-secondary transition">Proyek</a></li>
-        <li><a href="#about" class="hover:text-primary dark:hover:text-secondary transition">Tentang</a></li>
-        <li><a href="#contact" class="hover:text-primary dark:hover:text-secondary transition">Kontak</a></li>
-      </ul>
-      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="text-2xl focus:outline-none">
-        🌙
-      </button>
-    </nav>
-  </header>
+    <!-- Modern Fonts -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cal-sans@500&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Hero Section dengan Parallax -->
-  <section id="hero" class="parallax bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80')] h-screen flex flex-col justify-center items-center text-center px-4">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg fade-in" style="animation-delay: 0.3s;">
-      Halo, Saya <span class="text-secondary">[Nama Anda]</span>
-    </h1>
-    <p class="mt-4 text-xl md:text-2xl text-white drop-shadow-md fade-in" style="animation-delay: 0.6s;">
-      Developer Web & Desainer UI/UX Modern
-    </p>
-    <a href="#projects" class="mt-8 inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-primary transition-colors fade-in" style="animation-delay: 0.9s;">
-      Lihat Proyek Saya
-    </a>
-  </section>
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-  <!-- Proyek dengan Layout Asimetris -->
-  <section id="projects" class="container mx-auto px-4 py-20">
-    <h2 class="text-4xl font-bold text-center mb-12 text-primary dark:text-secondary">Proyek Saya</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-        <img src="https://source.unsplash.com/600x400/?website" alt="Proyek 1" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-2 text-primary dark:text-secondary">Website Company Profile</h3>
-          <p class="text-gray-700 dark:text-gray-300">Website modern dengan fitur interaktif dan desain responsif.</p>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Meta tags for SEO -->
+    <meta
+      name="description"
+      content="Modern portfolio website showcasing web development and UI/UX design projects"
+    />
+    <meta
+      name="keywords"
+      content="portfolio, web development, UI/UX design, modern website"
+    />
+    <meta name="author" content="[Your Name]" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Modern Portfolio 2024" />
+    <meta
+      property="og:description"
+      content="Modern portfolio website showcasing web development and UI/UX design projects"
+    />
+    <meta property="og:image" content="[Your OG Image URL]" />
+    <meta property="og:url" content="[Your Website URL]" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>"
+    />
+
+    <!-- Preload critical assets -->
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  </head>
+  <body
+    class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-500"
+  >
+    <!-- Custom cursor -->
+    <div class="custom-cursor hidden md:block"></div>
+
+    <!-- Loading screen -->
+    <div
+      id="loading-screen"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900 transition-opacity duration-500"
+    >
+      <div class="relative">
+        <div
+          class="w-20 h-20 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin"
+        ></div>
+        <div class="mt-4 text-center font-display text-xl gradient-animated">
+          Loading...
         </div>
-      </article>
-      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 mt-12 md:mt-0">
-        <img src="https://source.unsplash.com/600x400/?app" alt="Proyek 2" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-2 text-primary dark:text-secondary">Aplikasi Mobile E-Commerce</h3>
-          <p class="text-gray-700 dark:text-gray-300">Aplikasi mobile dengan UI yang mudah digunakan dan cepat.</p>
-        </div>
-      </article>
-      <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-        <img src="https://source.unsplash.com/600x400/?dashboard" alt="Proyek 3" class="w-full h-48 object-cover" />
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-2 text-primary dark:text-secondary">Dashboard Admin</h3>
-          <p class="text-gray-700 dark:text-gray-300">Dashboard admin dengan fitur lengkap dan desain intuitif.</p>
-        </div>
-      </article>
+      </div>
     </div>
-  </section>
 
-  <!-- Tentang Saya -->
-  <section id="about" class="bg-gray-100 dark:bg-gray-900 py-20 px-4">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-4xl font-bold mb-8 text-primary dark:text-secondary">Tentang Saya</h2>
-      <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-        Saya adalah developer web dan desainer UI/UX yang berfokus pada pembuatan pengalaman digital yang modern, responsif, dan mudah digunakan. Dengan pengalaman bertahun-tahun, saya siap membantu mewujudkan ide Anda menjadi kenyataan.
-      </p>
-    </div>
-  </section>
-
-  <!-- Kontak -->
-  <section id="contact" class="container mx-auto px-4 py-20">
-    <h2 class="text-4xl font-bold text-center mb-12 text-primary dark:text-secondary">Hubungi Saya</h2>
-    <form id="contactForm" class="max-w-xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg space-y-6" novalidate>
-      <div>
-        <label for="name" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Nama</label>
-        <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary" />
-        <p class="text-red-500 text-sm mt-1 hidden" id="nameError">Nama wajib diisi.</p>
+    <!-- Header -->
+    <header
+      class="fixed top-0 left-0 w-full glass z-50 transition-all duration-500"
+    >
+      <nav class="container mx-auto flex justify-between items-center p-4">
+        <a href="#" class="font-display text-2xl gradient-animated"
+          >Portfolio</a
+        >
+        <div class="hidden md:flex items-center space-x-8">
+          <ul class="flex space-x-8">
+            <li class="magnetic">
+              <a
+                href="#hero"
+                class="group flex items-center gap-2 hover:text-primary-500 transition-colors"
+              >
+                <i
+                  class="fas fa-home text-primary-400 group-hover:animate-bounce-slow"
+                ></i>
+                <span class="relative">
+                  Beranda
+                  <span
+                    class="absolute inset-x-0 bottom-0 h-0.5 bg-primary-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </span>
+              </a>
+            </li>
+            <li class="magnetic">
+              <a
+                href="#projects"
+                class="group flex items-center gap-2 hover:text-primary-500 transition-colors"
+              >
+                <i
+                  class="fas fa-code text-primary-400 group-hover:animate-spin-slow"
+                ></i>
+                <span class="relative">
+                  Proyek
+                  <span
+                    class="absolute inset-x-0 bottom-0 h-0.5 bg-primary-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </span>
+              </a>
+            </li>
+            <li class="magnetic">
+              <a
+                href="#about"
+                class="group flex items-center gap-2 hover:text-primary-500 transition-colors"
+              >
+                <i
+                  class="fas fa-user text-primary-400 group-hover:animate-wave"
+                ></i>
+                <span class="relative">
+                  Tentang
+                  <span
+                    class="absolute inset-x-0 bottom-0 h-0.5 bg-primary-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </span>
+              </a>
+            </li>
+            <li class="magnetic">
+              <a
+                href="#contact"
+                class="group flex items-center gap-2 hover:text-primary-500 transition-colors"
+              >
+                <i
+                  class="fas fa-envelope text-primary-400 group-hover:animate-ping-slow"
+                ></i>
+                <span class="relative">
+                  Kontak
+                  <span
+                    class="absolute inset-x-0 bottom-0 h-0.5 bg-primary-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <button
+            id="theme-toggle"
+            class="relative w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300"
+          >
+            <div
+              class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white dark:bg-primary-400 transition-transform duration-300 transform dark:translate-x-6"
+            >
+              <i
+                class="fas fa-sun text-[10px] text-primary-500 dark:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              ></i>
+              <i
+                class="fas fa-moon text-[10px] text-white hidden dark:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              ></i>
+            </div>
+          </button>
+        </div>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+        >
+          <div class="w-6 h-5 relative">
+            <span
+              class="absolute w-full h-0.5 bg-current transform transition-all duration-300 top-0"
+            ></span>
+            <span
+              class="absolute w-full h-0.5 bg-current transform transition-all duration-300 top-1/2 -translate-y-1/2"
+            ></span>
+            <span
+              class="absolute w-full h-0.5 bg-current transform transition-all duration-300 bottom-0"
+            ></span>
+          </div>
+        </button>
+      </nav>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <div class="glass border-t border-gray-200 dark:border-gray-700">
+          <ul class="container mx-auto px-4 py-2 space-y-4">
+            <li>
+              <a
+                href="#hero"
+                class="flex items-center gap-2 p-2 hover:text-primary-500 transition-colors"
+              >
+                <i class="fas fa-home w-6"></i>
+                <span>Beranda</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="flex items-center gap-2 p-2 hover:text-primary-500 transition-colors"
+              >
+                <i class="fas fa-code w-6"></i>
+                <span>Proyek</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="flex items-center gap-2 p-2 hover:text-primary-500 transition-colors"
+              >
+                <i class="fas fa-user w-6"></i>
+                <span>Tentang</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="flex items-center gap-2 p-2 hover:text-primary-500 transition-colors"
+              >
+                <i class="fas fa-envelope w-6"></i>
+                <span>Kontak</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <label for="email" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Email</label>
-        <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary" />
-        <p class="text-red-500 text-sm mt-1 hidden" id="emailError">Email tidak valid.</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="min-h-screen relative flex items-center justify-center overflow-hidden"
+    >
+      <!-- Animated background -->
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-secondary-500/20 to-accent-500/20 animate-gradient"
+        ></div>
+        <div class="absolute inset-0 noise opacity-20"></div>
+        <!-- Floating shapes -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            class="floating-shape absolute top-1/4 left-1/4 w-64 h-64 bg-primary-500/30 rounded-blob animate-float"
+            style="--delay: 0s"
+          ></div>
+          <div
+            class="floating-shape absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/20 rounded-blob animate-float"
+            style="--delay: -5s"
+          ></div>
+          <div
+            class="floating-shape absolute top-1/2 right-1/3 w-48 h-48 bg-accent-500/25 rounded-blob animate-float"
+            style="--delay: -2.5s"
+          ></div>
+        </div>
+        <!-- Grid pattern -->
+        <div class="absolute inset-0 grid-pattern opacity-10"></div>
       </div>
-      <div>
-        <label for="message" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">Pesan</label>
-        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
-        <p class="text-red-500 text-sm mt-1 hidden" id="messageError">Pesan wajib diisi.</p>
+
+      <div class="container mx-auto px-4 text-center relative">
+        <div class="space-y-8">
+          <!-- Hero content with modern animation -->
+          <div class="relative inline-block">
+            <h1
+              class="text-5xl md:text-7xl font-display mb-6 tracking-tight opacity-0 animate-title"
+            >
+              <span class="inline-block">Halo,</span>
+              <span class="inline-block ml-4">Saya</span>
+              <span class="relative inline-block ml-4 text-3d gradient-animated"
+                >ADJIE ARYA S W
+                <span
+                  class="absolute -inset-1 bg-primary-500/20 blur-xl"
+                ></span>
+              </span>
+            </h1>
+          </div>
+
+          <p
+            class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transform opacity-0 animate-fade-in"
+            style="--delay: 0.5s"
+          >
+            Developer Web & Desainer UI/UX Modern
+          </p>
+
+          <!-- Modern action buttons -->
+          <div
+            class="flex flex-wrap gap-6 justify-center items-center mt-12 opacity-0 animate-fade-in"
+            style="--delay: 1s"
+          >
+            <a
+              href="#projects"
+              class="group relative inline-flex items-center gap-2 px-8 py-4 overflow-hidden rounded-full bg-primary-500 text-white font-medium"
+            >
+              <!-- Button background animation -->
+              <div
+                class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-600 to-secondary-500 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-110"
+              ></div>
+
+              <!-- Button content -->
+              <span
+                class="relative flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <i class="fas fa-eye text-lg"></i>
+                <span class="font-medium">Lihat Proyek</span>
+                <svg
+                  class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </span>
+
+              <!-- Button glow effect -->
+              <div
+                class="absolute inset-0 rounded-full blur-sm bg-primary-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+            </a>
+
+            <a
+              href="#contact"
+              class="group relative inline-flex items-center gap-2 px-8 py-4 overflow-hidden rounded-full bg-white/10 backdrop-blur-sm text-current font-medium hover-lift"
+            >
+              <!-- Button background -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500"
+              ></div>
+
+              <!-- Button content -->
+              <span class="relative flex items-center gap-2">
+                <i class="fas fa-paper-plane"></i>
+                <span>Hubungi Saya</span>
+              </span>
+
+              <!-- Button border glow -->
+              <div
+                class="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/40 transition-colors duration-300"
+              ></div>
+            </a>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="w-full bg-primary text-white py-3 rounded-full font-semibold hover:bg-secondary transition-colors">Kirim Pesan</button>
-      <p class="text-green-500 text-center font-semibold mt-4 hidden" id="formSuccess">Pesan berhasil dikirim! Terima kasih.</p>
-    </form>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-primary text-white text-center py-6">
-    &copy; 2025 [Nama Anda]. Semua hak cipta dilindungi.
-  </footer>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-gradient-radial from-primary-50 to-transparent dark:from-primary-950/20"
+        ></div>
+        <div class="absolute inset-0 noise"></div>
+      </div>
 
-  <script>
-    // Toggle dark mode
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-display gradient-animated mb-4">
+            Proyek Terbaik
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Berikut adalah beberapa proyek terbaik yang telah saya kerjakan
+            dengan passion dan dedikasi tinggi.
+          </p>
+        </div>
 
-    // Set initial theme
-    if (
-      localStorage.getItem('theme') === 'dark' ||
-      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      htmlElement.classList.add('dark');
-      themeToggleBtn.textContent = '☀️';
-    } else {
-      themeToggleBtn.textContent = '🌙';
-    }
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1 -->
+          <article
+            class="modern-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden group"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://source.unsplash.com/600x400/?website"
+                alt="Proyek 1"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="flex items-center gap-2 text-white">
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-display gradient-animated mb-2">
+                Website Company Profile
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Website modern dengan fitur interaktif dan desain responsif.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  React
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  Tailwind
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  Node.js
+                </span>
+              </div>
+            </div>
+          </article>
 
-    themeToggleBtn.addEventListener('click', () => {
-      if (htmlElement.classList.contains('dark')) {
-        htmlElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        themeToggleBtn.textContent = '🌙';
-      } else {
-        htmlElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        themeToggleBtn.textContent = '☀️';
-      }
-    });
+          <!-- Project Card 2 -->
+          <article
+            class="modern-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden group"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://source.unsplash.com/600x400/?app"
+                alt="Proyek 2"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="flex items-center gap-2 text-white">
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-display gradient-animated mb-2">
+                Aplikasi Mobile E-Commerce
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Aplikasi mobile dengan UI yang mudah digunakan dan cepat.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  React Native
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  Firebase
+                </span>
+              </div>
+            </div>
+          </article>
 
-    // Form validation
-    const form = document.getElementById('contactForm');
-    const nameInput = form.name;
-    const emailInput = form.email;
-    const messageInput = form.message;
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const messageError = document.getElementById('messageError');
-    const formSuccess = document.getElementById('formSuccess');
+          <!-- Project Card 3 -->
+          <article
+            class="modern-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden group"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://source.unsplash.com/600x400/?dashboard"
+                alt="Proyek 3"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="flex items-center gap-2 text-white">
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-display gradient-animated mb-2">
+                Dashboard Admin
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Dashboard admin dengan fitur lengkap dan desain intuitif.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  React
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  Node.js
+                </span>
+              </div>
+            </div>
+          </article>
+          <!-- Project Card 4 - Epredix -->
+          <article
+            class="modern-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden group"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://source.unsplash.com/600x400/?crypto"
+                alt="Epredix - Aplikasi Prediksi Crypto"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="flex items-center gap-2 text-white">
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a
+                      href="#"
+                      class="hover:text-primary-400 transition-colors"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-display gradient-animated mb-2">
+                Epredix - Aplikasi Prediksi Crypto
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Platform prediksi cryptocurrency dengan analisis data real-time
+                dan algoritma machine learning untuk membantu investor membuat
+                keputusan tepat.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  React
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  Python
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  TensorFlow
+                </span>
+                <span
+                  class="px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                >
+                  API Integration
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    <!-- About Section -->
+    <section id="about" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-gradient-conic from-primary-50 via-transparent to-primary-50 dark:from-primary-950/20 dark:to-primary-950/20"
+        ></div>
+        <div class="absolute inset-0 noise"></div>
+      </div>
 
-      let valid = true;
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-display gradient-animated mb-4">
+            Tentang Saya
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Mengenal lebih dekat tentang saya dan perjalanan karir saya.
+          </p>
+        </div>
 
-      // Reset error messages
-      nameError.style.display = 'none';
-      emailError.style.display = 'none';
-      messageError.style.display = 'none';
-      formSuccess.style.display = 'none';
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 modern-card">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+              <div class="relative w-48 h-48">
+                <div class="absolute inset-0 blob"></div>
+                <div
+                  class="relative w-full h-full rounded-full overflow-hidden ring-4 ring-primary-500 ring-offset-4 dark:ring-offset-gray-800"
+                >
+                  <img
+                    src="https://source.unsplash.com/400x400/?portrait"
+                    alt="Profile"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div class="flex-1 space-y-6">
+                <div>
+                  <h3 class="text-2xl font-display mb-2">[Nama Anda]</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    Full Stack Developer & UI/UX Designer
+                  </p>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Saya adalah developer web dan desainer UI/UX yang berfokus
+                  pada pembuatan pengalaman digital yang modern, responsif, dan
+                  mudah digunakan. Dengan pengalaman bertahun-tahun, saya siap
+                  membantu mewujudkan ide Anda menjadi kenyataan.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <div class="flex items-center gap-2 text-primary-500">
+                    <i class="fas fa-code text-lg"></i>
+                    <span>Full Stack Development</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-primary-500">
+                    <i class="fas fa-paint-brush text-lg"></i>
+                    <span>UI/UX Design</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-primary-500">
+                    <i class="fas fa-mobile-alt text-lg"></i>
+                    <span>Responsive Design</span>
+                  </div>
+                </div>
+                <div class="flex gap-4 pt-4">
+                  <a
+                    href="#"
+                    class="text-gray-600 hover:text-primary-500 transition-colors"
+                  >
+                    <i class="fab fa-github text-2xl"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-gray-600 hover:text-primary-500 transition-colors"
+                  >
+                    <i class="fab fa-linkedin text-2xl"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-gray-600 hover:text-primary-500 transition-colors"
+                  >
+                    <i class="fab fa-twitter text-2xl"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-gray-600 hover:text-primary-500 transition-colors"
+                  >
+                    <i class="fab fa-instagram text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      if (!nameInput.value.trim()) {
-        nameError.style.display = 'block';
-        valid = false;
-      }
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent to-primary-50 dark:to-primary-950/20"
+        ></div>
+        <div class="absolute inset-0 noise"></div>
+      </div>
 
-      const emailPattern = /^\S+@\S+\.\S+$/;
-      if (!emailInput.value.trim() || !emailPattern.test(emailInput.value)) {
-        emailError.style.display = 'block';
-        valid = false;
-      }
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-display gradient-animated mb-4">
+            Hubungi Saya
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Tertarik untuk bekerja sama? Jangan ragu untuk menghubungi saya
+            melalui form di bawah ini.
+          </p>
+        </div>
 
-      if (!messageInput.value.trim()) {
-        messageError.style.display = 'block';
-        valid = false;
-      }
+        <form id="contactForm" class="max-w-xl mx-auto">
+          <div
+            class="modern-card bg-white dark:bg-gray-800 rounded-2xl p-8 space-y-6"
+          >
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Nama
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="modern-input w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100"
+              />
+              <p class="text-red-500 text-sm mt-1 hidden" id="nameError">
+                Nama wajib diisi.
+              </p>
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="modern-input w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100"
+              />
+              <p class="text-red-500 text-sm mt-1 hidden" id="emailError">
+                Email tidak valid.
+              </p>
+            </div>
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Pesan
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="modern-input w-full px-4 py-2 rounded-lg text-gray-900 dark:text-gray-100"
+              ></textarea>
+              <p class="text-red-500 text-sm mt-1 hidden" id="messageError">
+                Pesan wajib diisi.
+              </p>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 group"
+            >
+              <span>Kirim Pesan</span>
+              <i
+                class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"
+              ></i>
+            </button>
+            <div id="formSuccess" class="hidden">
+              <div
+                class="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 p-4 rounded-lg text-center"
+              >
+                <i class="fas fa-check-circle text-2xl mb-2"></i>
+                <p class="font-medium">Pesan berhasil dikirim! Terima kasih.</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
 
-      if (valid) {
-        formSuccess.style.display = 'block';
-        form.reset();
-      }
-    });
-  </script>
-</body>
+    <!-- Footer -->
+    <footer
+      class="bg-primary-900 dark:bg-gray-900 text-white py-12 relative overflow-hidden"
+    >
+      <div class="absolute inset-0 noise opacity-10"></div>
+      <div class="container mx-auto px-4 relative">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-8"
+        >
+          <div>
+            <h3 class="font-display text-2xl gradient-animated mb-2">
+              [Nama Anda]
+            </h3>
+            <p class="text-primary-200">Developer Web & UI/UX Designer</p>
+          </div>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-primary-400 transition-colors">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <a href="#" class="hover:text-primary-400 transition-colors">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="#" class="hover:text-primary-400 transition-colors">
+              <i class="fab fa-twitter text-2xl"></i>
+            </a>
+            <a href="#" class="hover:text-primary-400 transition-colors">
+              <i class="fab fa-instagram text-2xl"></i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="mt-8 pt-8 border-t border-primary-800 text-center text-primary-300"
+        >
+          &copy; 2024 [Nama Anda]. Semua hak cipta dilindungi.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="scripts.js"></script>
+
+    <!-- Initialize loading screen -->
+    <script>
+      window.addEventListener("load", () => {
+        const loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.opacity = "0";
+        setTimeout(() => {
+          loadingScreen.style.display = "none";
+        }, 500);
+      });
+    </script>
+  </body>
 </html>
